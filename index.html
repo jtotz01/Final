@@ -2,9 +2,8 @@
 <head>
     <meta name=‘viewport’ content=“width=device-width, initial-scale=1”>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&family=Yellowtail&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Poppins:wght@100;300&family=Yellowtail&display=swap" rel="stylesheet">
     <title>Cookbook+ Home Page</title>
     <style type="text/css">
         header {
@@ -106,7 +105,7 @@
           content:"";
           width:150px;
           height:5px;
-          background-color:green;
+          background-color:#76C14F;
           bottom:0;
           left:50%;
           transform:translateX(-50%);
@@ -128,6 +127,7 @@
 
         .cells-steps .col-survey, .col-search, .col-favorite {
             font-size: 25px;
+
         }
 
         .cells-steps .steps {
@@ -136,11 +136,12 @@
         }
 
         .join-footer {
-            padding-block: 75px;
+            padding-block: 50px;
             background-color: #76C14F;
             text-align: center;
             font-size: 40px;
             color: white;
+            font-family: 'Poppins';
         }
 
         .description-table {
@@ -152,6 +153,7 @@
             text-align: center;
             padding-left: 0px;
             /* font-size: 30px; */
+            padding-right: 30px;
         }
 
         .cookbook_img {
@@ -159,22 +161,39 @@
             width: 120%;
         }
 
-        .gs-button {
-            font-size: 14px;
+        .button {
+            font-size: 16px;
             height: 50px;
             border-radius: 7px;
-            background-color: #4a8c29
+            background-color: rgb(230, 133, 22);
+            font-family: 'PT Sans', sans-serif;
+            font-weight: 600;
+            color: white;
+            border-color: rgb(230, 133, 22);
+        }
 
+        #join-button {
+            padding-bottom: 50px;
         }
 
         .rediscover{
-            font-family: "Open Sans," "Segoe"; 
-            font-size: 30px;
-            color: #444444;
+            text-align: center;
+            font-family: 'Poppins';
+            font-weight: 600;
+            font-size: 25px;
         }
 
         .ckbk {
-            font-size: 45px;
+            font-family: 'Yellowtail';
+            font-size: 75px;
+        }
+
+        .description {
+            font-size: 25px;
+        }
+
+        body {
+            font-family: 'PT Sans', sans-serif;
         }
 
 
@@ -192,11 +211,12 @@
     <table class="description-table">
         <tr>
             <td class="left">
-                <div class = "rediscover">Rediscover Your</div>
+                <div class = "rediscover">REDISCOVER YOUR</div>
                 <div class = "ckbk">cookbooks</div>
-                <div class="descrption">Discover how Cookbook+ is a great way to discover new recipes and rethink how you use cookbooks.</div>
-                <button class = "gs-button">Get Started</button>
-                <a href = "" class = "gs-button"></a>
+                <div class="description">Discover how Cookbook+ is a great way to discover </br> new recipes and rethink how you use cookbooks.</div>
+                
+                <p><button class = "button">Get Started</button></p>
+                <a href = "" class = "button"></a>
             </td>
             <!-- <td class="right"><img src="cookbook-body2.jpg"/></td> -->
             <td class = "right"><img class = "cookbook_img" src = "cookbook-body2.jpg"/></td>
@@ -210,27 +230,28 @@
     <div class="cells-steps">
         <div class="col-survey">
             <div class="steps">1. Survey</div>
-            <p>Fill out our initial questionaire that gauges your likes and dislikes to cater 
+            <p>Fill out our initial questionaire </br> that gauges your likes and dislikes to </br> cater 
                 the recipes to your taste.</p>
+            </br></br>
         </div>
         <div class="col-search">
             <div class="steps">2. Find Recipes</div>
-            <p>View our recommended recipes as well as search among hundreds of thousands of recipes to find the
-                specific one you are looking for.
+            <p>View our recommended recipes </br> as well as search among hundreds </br> of thousands of recipes to find the
+            </br> specific one you are looking for.
 
             </p>
         </div>
         <div class="col-favorite">
             <div class="steps">3. Favorite</div>
-            <p>Add recipes to your 'Favorites' section to personalize your cookbook and have easy
-                access to all your favorite recipes.
+            <p>Add recipes to your 'Favorites' </br> section to personalize your cookbook </br> and have easy
+                access to all your </br> favorite recipes.
             </p>
         </div>
     </div>
 
     <div class="join-footer">  
-        BECOME A MEMBER & START ORGANIZING YOUR RECIPES
-        <a href="index.html">JOIN FOR FREE</a>
+        BECOME A MEMBER & START ORGANIZING YOUR RECIPES &nbsp
+        <span class="join-button"><button class="button">JOIN FOR FREE</button></span>
     </div>
 
     <div class="footer">
