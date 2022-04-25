@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Recipes FOrm
+    </title>
+    <meta charset = "utf-8">
+    <script>
+    //Starts the function 
+    function start()
+    {
+        verify();
+    }
+    //Verifies Form that there is a search for food
+    function verify()
+    {
+        let x = document.getElementsByName("foodSearch")[0].value;
+        let y = document.getElementsByName("cuisineSearch")[0].value;
+        let z = document.getElementsByName("dietSearch")[0].value;
+        
+        if(x != "")
+        {
+            search(x, y, z);
+            return true;
+        }
+        else 
+        {
+            alert("You must input a food search!");
+            return false;
+        }
+    }
+    
+    function allergy()
+    {
+        var allergiesFinal = "";
+    
+        if(document.getElementById("dairy").checked == true)
+        {
+            allergiesFinal += "dairy%2C";
+        }
+        if(document.getElementById("egg").checked == true)
+        {
+            allergiesFinal += "egg%2C";
+        }
+        if(document.getElementById("peanut").checked == true)
+        {
+            allergiesFinal += "peanut%2C";
+        }
+        if(document.getElementById("sesame").checked == true)
+        {
+            allergiesFinal += "sesame%2C";
+        }
+        if(document.getElementById("seafood").checked == true)
+        {
+            allergiesFinal += "seafood%2C";
+        }
+        if(document.getElementById("shellfish").checked == true)
+        {
+            allergiesFinal += "shellfish%2C";
+        }
+        if(document.getElementById("soy").checked == true)
+        {
+            allergiesFinal += "soy%2C";
+        }
+        if(document.getElementById("sulfite").checked == true)
+        {
+            allergiesFinal += "sulfite%2C";
+        
+        }
+        if(document.getElementById("tree").checked == true)
+        {
+            allergiesFinal += "tree%2C";
+            
+        }
+        if(document.getElementById("wheat").checked == true)
+        {
+            allergiesFinal += "wheat%2C";
+        }
+        
+        if(allergiesFinal != "")
+        {
+            allergiesFinal = "&intolerances=" + allergiesFinal;
+        }
+        return allergiesFinal;
+    }
+    
+    function search(search, cuisine, diet)
+    {
+        
+        var allergiesFinal = allergy();
+        const data = null;
+    
+    const xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+    
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+            console.log(this.responseText);
+            theData = xhr.responseText;
+            dataFinal = JSON.parse(theData);
+            
+            document.getElementById("title1").innerHTML = dataFinal["results"][0]["title"];
+            document.getElementById("summary1").innerHTML = dataFinal["results"][0]["summary"];
+            document.getElementById("url1").innerHTML = dataFinal["results"][0]["sourceUrl"];
+            
+            document.getElementById("title2").innerHTML = dataFinal["results"][1]["title"];
+            document.getElementById("summary2").innerHTML = dataFinal["results"][1]["summary"];
+            document.getElementById("url2").innerHTML = dataFinal["results"][1]["sourceUrl"];
+            
+            document.getElementById("title3").innerHTML = dataFinal["results"][2]["title"];
+            document.getElementById("summary3").innerHTML = dataFinal["results"][2]["summary"];
+            document.getElementById("url3").innerHTML = dataFinal["results"][2]["sourceUrl"];
+            
+            document.getElementById("title4").innerHTML = dataFinal["results"][3]["title"];
+            document.getElementById("summary4").innerHTML = dataFinal["results"][3]["summary"];
+            document.getElementById("url4").innerHTML = dataFinal["results"][3]["sourceUrl"];
+            
+            document.getElementById("title5").innerHTML = dataFinal["results"][4]["title"];
+            document.getElementById("summary5").innerHTML = dataFinal["results"][4]["summary"];
+            document.getElementById("url5").innerHTML = dataFinal["results"][4]["sourceUrl"];
+            
+            document.getElementById("title6").innerHTML = dataFinal["results"][5]["title"];
+            document.getElementById("summary6").innerHTML = dataFinal["results"][5]["summary"];
+            document.getElementById("url6").innerHTML = dataFinal["results"][5]["sourceUrl"];
+            
+            document.getElementById("title7").innerHTML = dataFinal["results"][6]["title"];
+            document.getElementById("summary7").innerHTML = dataFinal["results"][6]["summary"];
+            document.getElementById("url7").innerHTML = dataFinal["results"][6]["sourceUrl"];
+            
+            document.getElementById("title8").innerHTML = dataFinal["results"][7]["title"];
+            document.getElementById("summary8").innerHTML = dataFinal["results"][7]["summary"];
+            document.getElementById("url8").innerHTML = dataFinal["results"][7]["sourceUrl"];
+            
+            document.getElementById("title9").innerHTML = dataFinal["results"][8]["title"];
+            document.getElementById("summary9").innerHTML = dataFinal["results"][8]["summary"];
+            document.getElementById("url9").innerHTML = dataFinal["results"][8]["sourceUrl"];
+            
+            document.getElementById("title10").innerHTML = dataFinal["results"][9]["title"];
+            document.getElementById("summary10").innerHTML = dataFinal["results"][9]["summary"];
+            document.getElementById("url10").innerHTML = dataFinal["results"][9]["sourceUrl"];
+            
+            document.getElementById("title11").innerHTML = dataFinal["results"][10]["title"];
+            document.getElementById("summary11").innerHTML = dataFinal["results"][10]["summary"];
+            document.getElementById("url11").innerHTML = dataFinal["results"][10]["sourceUrl"];
+            
+            //image = "dataFinal['results'][0]['image']";
+            //document.write('<img src = "image">');
+        }
+    });
+    var url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?"
+    + "query=" + search + "&" + "cuisine=" + cuisine + "&" + "diet=" + diet + "&instructionsRequired=true&addRecipeInformation=true"
+    + allergiesFinal;
+    xhr.open("GET", url);
+    xhr.setRequestHeader("X-RapidAPI-Host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com");
+    xhr.setRequestHeader("X-RapidAPI-Key", "975da657a3msh06070dd41abb7f8p1c0484jsne21cb9e47bb5");
+    
+    xhr.send(data);
+    
+
+    }
+
+        </script>
+    </head>
+    <body>
+        <h1>Recipe API</h1>
+        <div style = "font-size: 25px;">
+        <p class = "food"><label>Food Search: </label><input type = "text" name = 'foodSearch'/></p>
+        <td class = "cuisine"><label>Cuisine Search (Optional): </label>
+            <select name = 'cuisineSearch'/>
+            <option disabled selected value> -- select an option -- </option>
+            <option>African</option>
+            <option>Chinese</option>
+            <option>Japanese</option>
+            <option>Korean</option>
+            <option>Vietnamese</option>
+            <option>Thai</option>
+            <option>Indian</option>
+            <option>British</option>
+            <option>Irish</option>
+            <option>French</option>
+            <option>Italian/option>
+            <option>Mexican</option>
+            <option>Spanish</option>
+            <option>Middle Eastern</option>
+            <option>Jewish</option>
+            <option>American</option>
+            <option>Cajun</option>
+            <option>Southern</option>
+            <option>Greek</option>
+            <option>German</option>
+            <option>Nordic</option>
+            <option>Eastern European</option>
+            <option>Caribbean</option>
+            <option>Latin American</option>
+        </select>
+        </td>
+    </br>
+    </br>
+    </br>
+        <input type = "radio" name = "allergy1" value = "dairy" id = "dairy"/>Dairy Allergy 
+        <input type = "radio" name = "allergy2" value = "egg"id = "egg"/>Egg Allergy 
+        <input type = "radio" name = "allergy3" value = "peanut" id = "peanut"/>Peanut Allergy 
+        <input type = "radio" name = "allergy4" value = "sesame" id = "sesame"/>Sesame Allergy
+        <input type = "radio" name = "allergy5" value = "seafood" id = "seafood"/>Seafood Allergy 
+        <input type = "radio" name = "allergy6" value = "shellfish" id = "shellfish"/>Shellfish Allergy 
+        <input type = "radio" name = "allergy7" value = "soy" id = "soy"/>Soy Allergy 
+        <input type = "radio" name = "allergy8" value = "sulfite" id = "sulfite"/>Sulfite Allergy 
+        <input type = "radio" name = "allergy9" value = "tree" id = "tree"/>Tree Nut Allergy 
+        <input type = "radio" name = "allergy10" value = "wheat" id = "wheat"/>Wheat Allergy 
+    </br>
+    </br>
+    </br>
+    <td class = "diet"><label>Diet Search (Optional): </label>
+        <select name = 'dietSearch'/>
+        <option disabled selected value> -- select an option -- </option>
+        <option>Pescetarian</option>
+        <option>Vegan</option>
+        <option>Paleo</option>
+        <option>Vegetarian</option>
+    </select>
+</td>
+</br>
+</br>
+</br>
+<input type = "button" value = "Search for Recipes!" onclick = "start();"/>
+            </div>
+        <p id = "title1" style = "font-size: 20px;"></p>
+        <p id = "summary1" style = "font-size: 20px;"></p>
+        <p id = "url1" style = "font-size: 20px;"></p>
+        
+        <p id = "title2" style = "font-size: 20px;"></p>
+        <p id = "summary2" style = "font-size: 20px;"></p>
+        <p id = "url2" style = "font-size: 20px;"></p>
+        
+        <p id = "title3" style = "font-size: 20px;"></p>
+        <p id = "summary3" style = "font-size: 20px;"></p>
+        <p id = "url3" style = "font-size: 20px;"></p>
+        
+        <p id = "title4" style = "font-size: 20px;"></p>
+        <p id = "summary4" style = "font-size: 20px;"></p>
+        <p id = "url4" style = "font-size: 20px;"></p>
+        
+        <p id = "title5" style = "font-size: 20px;"></p>
+        <p id = "summary5" style = "font-size: 20px;"></p>
+        <p id = "url5" style = "font-size: 20px;"></p>
+        
+        <p id = "title6" style = "font-size: 20px;"></p>
+        <p id = "summary6" style = "font-size: 20px;"></p>
+        <p id = "url6" style = "font-size: 20px;"></p>
+        
+        <p id = "title7" style = "font-size: 20px;"></p>
+        <p id = "summary7" style = "font-size: 20px;"></p>
+        <p id = "url7" style = "font-size: 20px;"></p>
+        
+        <p id = "title8" style = "font-size: 20px;"></p>
+        <p id = "summary8" style = "font-size: 20px;"></p>
+        <p id = "url8" style = "font-size: 20px;"></p>
+        
+        <p id = "title9" style = "font-size: 20px;"></p>
+        <p id = "summary9" style = "font-size: 20px;"></p>
+        <p id = "url9" style = "font-size: 20px;"></p>
+        
+        <p id = "title10" style = "font-size: 20px;"></p>
+        <p id = "summary10" style = "font-size: 20px;"></p>
+        <p id = "url10" style = "font-size: 20px;"></p>
+        </body>
+</html>
