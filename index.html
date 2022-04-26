@@ -39,12 +39,13 @@
         }
         .page {
             padding: 30px;
-            padding-top: 22%;
+            /* padding-top: 22%; */
             font-size: 30px;
             background: none;
             border: none;
             text-decoration: none;
             z-index: 200;
+            margin-top: 30px;
         }
         footer {
             text-align: center;
@@ -54,57 +55,12 @@
             font-size: 20px;
             
         }
-        
-        @media (max-width: 1000px) {
-            #logo {
-                margin-left: 5%;
-            }   
-            .page {
-                font-size: 40px;
-                display: inline-block;
-                padding: 10px;
-                margin-top: 30px;
-                font-size: 30px;
-                background: none;
-                border: none;
-                text-decoration: none;
-                z-index: 200;
-
-            }
-            
-        }
-
-        /* @media (max-width: 747px){
-            #logo {
-                width:30%;
-                margin-left: 2%;
-            }
-            .page, .button {
-                padding: 10px;
-                padding-top: 30%;
-            }
-        }
-        @media (max-width: 510px){
-            .page, button {
-                padding: 0px;
-                padding-top: 26%;
-                font-size: 20px;
-            }
-        } */
-
-        /* @media (max-width: 900px) {
-            .right {
-                display: block;
-                flex-wrap: wrap;
-            }
-        } */
-        
 
         h1 {
             font-size: 60px;
         }
 
-        h
+        h {
             font-size: 45px;
         }
 
@@ -225,6 +181,37 @@
 
         a {
             color: #76C14F;
+        }
+
+        @media (max-width: 1000px) {
+            #logo {
+                margin-left: 5%;
+            }   
+            .page {
+                font-size: 40px;
+                display: inline-block;
+                padding: 10px;
+                margin-top: 30px;
+                font-size: 30px;
+                background: none;
+                border: none;
+                text-decoration: none;
+                z-index: 200;
+
+            }
+            
+        }
+
+        @media (max-width: 1000px) {
+            .cells-steps {
+         column-count: 1;
+            column-gap: 150px;
+            text-align: center;
+            padding-left: 100px;
+            padding-right: 100px;
+            padding-top: 20px;
+            padding-bottom: 100px;
+        }
         }
 
 
